@@ -1,13 +1,13 @@
-package com.virtualcasino.blackbackend;
+package com.openmarket.biddingplatformbackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlackbackendApplication {
+public class BiddingPlatformBackend {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlackbackendApplication.class, args);
+		SpringApplication.run(BiddingPlatformBackend.class, args);
 	}
 
 }

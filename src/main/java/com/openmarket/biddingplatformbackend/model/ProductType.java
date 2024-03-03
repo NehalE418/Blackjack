@@ -1,4 +1,4 @@
-package com.virtualcasino.blackbackend.model;
+package com.openmarket.biddingplatformbackend.model;
 
 public enum ProductType {
     HOME_DECOR,

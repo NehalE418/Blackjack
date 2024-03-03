@@ -1,10 +1,10 @@
-package com.virtualcasino.blackbackend;
+package com.openmarket.biddingplatformbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BlackbackendApplicationTests {
+class BiddingPlatformBackendTests {
 
 	@Test
 	void contextLoads() {
