@@ -7,26 +7,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
 @Table(name = "users")
 @Data
-@AllArgsConstructor
-public abstract class User {
+public class User {
 
     @Id
+    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;//ID of the user which will be generated
+    @Column(name="name")
     private String name;// Name of the user
+    @Column(name="email")
     private String email;//Email id and password of the user
+    @Column(name = "password")
     private String password;
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
-    private ArrayList <Product> userProducts = new ArrayList <Product>();
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
-    private ArrayList <Bid> biddingHistory = new ArrayList <Bid>();
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
-    private ArrayList <Review> reviewHistory = new ArrayList <Review>();
+    @OneToMany(mappedBy = "productSeller", cascade = CascadeType.ALL)
+    private List<Product> userProducts = new ArrayList <Product>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List <Bid> biddingHistory = new ArrayList <Bid>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List <Review> reviewHistory = new ArrayList <Review>();
     @JsonIgnore
     public String getPassword()
     {
@@ -35,5 +39,11 @@ public abstract class User {
     @JsonProperty
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public User(){
+        this.userProducts=new ArrayList<>();
+        this.biddingHistory=new ArrayList<>();
+        this.reviewHistory=new ArrayList<>();
     }
 }

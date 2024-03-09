@@ -13,9 +13,14 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
+    @Column(name = "comment")
     private String comment;
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    @Column(name = "product_id")
     private Long productId;
+    @Column(name ="rating")
     private int rating;
 
  }
